@@ -45,14 +45,28 @@ Create two computers object from your factory function and save them in one arra
 Note: please write one or two lines here describing your solution.
 */
 
+//function makeComputer returns an object with properties taken from the function parameters
+
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+  return {
+  	type: type,
+  	color: color,
+  	weight: weight
+  };
 }
+
+//array computers contains two elements, which are the returned values from calling makeComputer function twice
+var computers = [
+	makeComputer("laptop", "spacegrey", 3.2),
+	makeComputer("desktop", "red", 6.4)
+]
 
 // Write a function displayComputer that can be used to display one computer.
 
+
+//print the properties of the computer object using template literal string, using a line break after each element;
 function displayComputer(computer) {
-  // TODO: Your code here
+  console.log(`type: ${computer.type}\ncolor: ${computer.color}\nweight: ${computer.weight}`)
 }
 
 //=============================================================================
@@ -72,8 +86,14 @@ var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
 
+//map is the most fitting helper function here because we want to return the new array
+//using an anonymous function that returns the inputed string as the uppercase version using
+//the String.toUpperCase function
+
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+  return map(arrayOfStrings, function(string){
+  	return string.toUpperCase();
+  })
 }
 
 //=============================================================================
@@ -111,8 +131,12 @@ var data = [
   }
 ];
 
+//using filter function to pick the objects that satisfy our predicate of population property > 500M
+
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+  return filter(arrayOfObjects, function(country){
+  	return country.population> 500000000
+  })
 }
 
 //=============================================================================
@@ -131,8 +155,12 @@ halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 Note: please write one or two lines here describing your solution.
 */
 
+//using map to return a new array, including all the elements of number divided by two
+
 function halveAll(numbers) {
-  // your code is here
+  return map(numbers, function(num){
+  	return num/2;
+  })
 }
 
 //=============================================================================
@@ -147,8 +175,12 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+
+// using map function, we take each property and return it to the newly created array built into the map function
 function values(obj) {
-  // TODO: your code here
+  return map(obj, function(property){
+  	return property
+  })
 }
 
 //Good Luck :))
